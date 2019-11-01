@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE target SYSTEM "gdb-target.dtd">
+<feature name="dspbbe32-debug-regs">
+	<reg bitsize="32" name="pc" type="uint32" />
+    <reg bitsize="32" name="traxid" type="uint32" />
+    <reg bitsize="32" name="traxctrl" type="uint32" />
+    <reg bitsize="32" name="traxstat" type="uint32" />
+    <reg bitsize="32" name="traxdata" type="uint32" />
+    <reg bitsize="32" name="traxaddr" type="uint32" />
+    <reg bitsize="32" name="triggerpc" type="uint32" />
+    <reg bitsize="32" name="pcmatchctrl" type="uint32" />
+    <reg bitsize="32" name="delaycnt" type="uint32" />
+    <reg bitsize="32" name="memaddrstart" type="uint32" />
+    <reg bitsize="32" name="memaddrend" type="uint32" />
+    <reg bitsize="32" name="pmg" type="uint32" />
+    <reg bitsize="32" name="intpc" type="uint32" />
+    <reg bitsize="32" name="pm0" type="uint32" />
+    <reg bitsize="32" name="pm1" type="uint32" />
+    <reg bitsize="32" name="pm2" type="uint32" />
+    <reg bitsize="32" name="pm3" type="uint32" />
+    <reg bitsize="32" name="pm4" type="uint32" />
+    <reg bitsize="32" name="pm5" type="uint32" />
+    <reg bitsize="32" name="pm6" type="uint32" />
+    <reg bitsize="32" name="pm7" type="uint32" />
+    <reg bitsize="32" name="pmctrl0" type="uint32" />
+    <reg bitsize="32" name="pmctrl1" type="uint32" />
+    <reg bitsize="32" name="pmctrl2" type="uint32" />
+    <reg bitsize="32" name="pmctrl3" type="uint32" />
+    <reg bitsize="32" name="pmctrl4" type="uint32" />
+    <reg bitsize="32" name="pmctrl5" type="uint32" />
+    <reg bitsize="32" name="pmctrl6" type="uint32" />
+    <reg bitsize="32" name="pmctrl7" type="uint32" />
+    <reg bitsize="32" name="pmstat0" type="uint32" />
+    <reg bitsize="32" name="pmstat1" type="uint32" />
+    <reg bitsize="32" name="pmstat2" type="uint32" />
+    <reg bitsize="32" name="pmstat3" type="uint32" />
+    <reg bitsize="32" name="pmstat4" type="uint32" />
+    <reg bitsize="32" name="pmstat5" type="uint32" />
+    <reg bitsize="32" name="pmstat6" type="uint32" />
+    <reg bitsize="32" name="pmstat7" type="uint32" />
+    <reg bitsize="32" name="ocid" type="uint32" />
+    <reg bitsize="32" name="dcrclr" type="uint32" />
+    <reg bitsize="32" name="dcrset" type="uint32" />
+    <reg bitsize="32" name="dsr" type="uint32" />
+    <reg bitsize="32" name="ddr" type="uint32" />
+    <reg bitsize="32" name="pwrstl" type="uint32" />
+    <reg bitsize="32" name="pwrstat" type="uint32" />
+    <reg bitsize="32" name="eristat" type="uint32" />
+    <reg bitsize="32" name="itctrl" type="uint32" />
+    <reg bitsize="32" name="clamset" type="uint32" />
+    <reg bitsize="32" name="clamclr" type="uint32" />
+    <reg bitsize="32" name="lockaccess" type="uint32" />
+    <reg bitsize="32" name="lockstatus" type="uint32" />
+    <reg bitsize="32" name="authstatus" type="uint32" />
+</feature>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE target SYSTEM "gdb-target.dtd">
+<feature name="dspbbe32-special-regs">
+	<reg bitsize="32" name="lbeg" type="uint32" />
+    <reg bitsize="32" name="lend" type="uint32" />
+    <reg bitsize="32" name="lcount" type="uint32" />
+    <reg bitsize="32" name="sar" type="uint32" />
+    <reg bitsize="32" name="br" type="uint32" />
+    <reg bitsize="32" name="windowbase" type="uint32" />
+    <reg bitsize="32" name="windowstart" type="uint32" />
+    <reg bitsize="32" name="mmid" type="uint32" />
+    <reg bitsize="32" name="mpuenb" type="uint32" />
+    <reg bitsize="32" name="eraccess" type="uint32" />
+    <reg bitsize="32" name="cacheadrdis" type="uint32" />
+    <reg bitsize="32" name="ibreakenable" type="uint32" />
+    <reg bitsize="32" name="memctl" type="uint32" />
+    <reg bitsize="32" name="atomctl" type="uint32" />
+    <reg bitsize="32" name="mepc" type="uint32" />
+    <reg bitsize="32" name="meps" type="uint32" />
+    <reg bitsize="32" name="mesave" type="uint32" />
+    <reg bitsize="32" name="mesr" type="uint32" />
+    <reg bitsize="32" name="mecr" type="uint32" />
+    <reg bitsize="32" name="mevaddr" type="uint32" />
+    <reg bitsize="32" name="ibreaka0" type="uint32" />
+    <reg bitsize="32" name="ibreaka1" type="uint32" />
+    <reg bitsize="32" name="dbreaka0" type="uint32" />
+    <reg bitsize="32" name="dbreaka1" type="uint32" />
+    <reg bitsize="32" name="dbreakc0" type="uint32" />
+    <reg bitsize="32" name="dbreakc1" type="uint32" />
+    <reg bitsize="32" name="epc1" type="uint32" />
+    <reg bitsize="32" name="epc2" type="uint32" />
+    <reg bitsize="32" name="depc" type="uint32" />
+    <reg bitsize="32" name="eps2" type="uint32" />
+    <reg bitsize="32" name="excsave1" type="uint32" />
+    <reg bitsize="32" name="excsave2" type="uint32" />
+    <reg bitsize="32" name="cpenable" type="uint32" />
+    <reg bitsize="32" name="interrupt" type="uint32" />
+    <reg bitsize="32" name="intset" type="uint32" />
+    <reg bitsize="32" name="intclear" type="uint32" />
+    <reg bitsize="32" name="intenable" type="uint32" />
+    <reg bitsize="32" name="ps" type="uint32" />
+    <reg bitsize="32" name="vecbase" type="uint32" />
+    <reg bitsize="32" name="exccause" type="uint32" />
+    <reg bitsize="32" name="debugcause" type="uint32" />
+    <reg bitsize="32" name="ccount" type="uint32" />
+    <reg bitsize="32" name="prid" type="uint32" />
+    <reg bitsize="32" name="icount" type="uint32" />
+    <reg bitsize="32" name="icountlevel" type="uint32" />
+    <reg bitsize="32" name="excvaddr" type="uint32" />
+    <reg bitsize="32" name="ccompare0" type="uint32" />
+    <reg bitsize="32" name="misc0" type="uint32" />
+    <reg bitsize="32" name="misc1" type="uint32" />
+</feature>

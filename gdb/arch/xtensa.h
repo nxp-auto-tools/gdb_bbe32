@@ -22,6 +22,7 @@
 
 /* Xtensa ELF core file register set representation ('.reg' section).
    Copied from target-side ELF header <xtensa/elf.h>.  */
+#include <stdint.h>
 
 typedef uint32_t xtensa_elf_greg_t;
 

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE target SYSTEM "gdb-target.dtd">
+<target version="1.0">
+  <architecture>xtensa</architecture>
+  <xi:include href="xtensa-dbg.xml"/>
+  <xi:include href="xtensa-general.xml"/>
+  <xi:include href="xtensa-special.xml"/>
+</target>

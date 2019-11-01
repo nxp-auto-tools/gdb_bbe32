@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE target SYSTEM "gdb-target.dtd">
+<feature name="dspbbe32-general-regs">
+	<reg bitsize="32" name="a0" type="uint32" />
+    <reg bitsize="32" name="a1" type="uint32" />
+    <reg bitsize="32" name="a2" type="uint32" />
+    <reg bitsize="32" name="a3" type="uint32" />
+    <reg bitsize="32" name="a4" type="uint32" />
+    <reg bitsize="32" name="a5" type="uint32" />
+    <reg bitsize="32" name="a6" type="uint32" />
+    <reg bitsize="32" name="a7" type="uint32" />
+    <reg bitsize="32" name="a8" type="uint32" />
+    <reg bitsize="32" name="a9" type="uint32" />
+    <reg bitsize="32" name="a10" type="uint32" />
+    <reg bitsize="32" name="a11" type="uint32" />
+    <reg bitsize="32" name="a12" type="uint32" />
+    <reg bitsize="32" name="a13" type="uint32" />
+    <reg bitsize="32" name="a14" type="uint32" />
+    <reg bitsize="32" name="a15" type="uint32" />
+    <reg bitsize="32" name="ar0" type="uint32" />
+    <reg bitsize="32" name="ar1" type="uint32" />
+    <reg bitsize="32" name="ar2" type="uint32" />
+    <reg bitsize="32" name="ar3" type="uint32" />
+    <reg bitsize="32" name="ar4" type="uint32" />
+    <reg bitsize="32" name="ar5" type="uint32" />
+    <reg bitsize="32" name="ar6" type="uint32" />
+    <reg bitsize="32" name="ar7" type="uint32" />
+    <reg bitsize="32" name="ar8" type="uint32" />
+    <reg bitsize="32" name="ar9" type="uint32" />
+    <reg bitsize="32" name="ar10" type="uint32" />
+    <reg bitsize="32" name="ar11" type="uint32" />
+    <reg bitsize="32" name="ar12" type="uint32" />
+    <reg bitsize="32" name="ar13" type="uint32" />
+    <reg bitsize="32" name="ar14" type="uint32" />
+    <reg bitsize="32" name="ar15" type="uint32" />
+    <reg bitsize="32" name="ar16" type="uint32" />
+    <reg bitsize="32" name="ar17" type="uint32" />
+    <reg bitsize="32" name="ar18" type="uint32" />
+    <reg bitsize="32" name="ar19" type="uint32" />
+    <reg bitsize="32" name="ar20" type="uint32" />
+    <reg bitsize="32" name="ar21" type="uint32" />
+    <reg bitsize="32" name="ar22" type="uint32" />
+    <reg bitsize="32" name="ar23" type="uint32" />
+    <reg bitsize="32" name="ar24" type="uint32" />
+    <reg bitsize="32" name="ar25" type="uint32" />
+    <reg bitsize="32" name="ar26" type="uint32" />
+    <reg bitsize="32" name="ar27" type="uint32" />
+    <reg bitsize="32" name="ar28" type="uint32" />
+    <reg bitsize="32" name="ar29" type="uint32" />
+    <reg bitsize="32" name="ar30" type="uint32" />
+    <reg bitsize="32" name="ar31" type="uint32" />
+</feature>

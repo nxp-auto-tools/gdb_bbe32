@@ -1,5 +1,6 @@
 /* Xtensa configuration settings.
-   Copyright (C) 2001-2016 Free Software Foundation, Inc.
+   Copyright (C) 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008
+   Free Software Foundation, Inc.
    Contributed by Bob Wilson (bob.wilson@acm.org) at Tensilica.
 
    This program is free software; you can redistribute it and/or modify
@@ -25,13 +26,13 @@
    macros.  */
 
 #undef XCHAL_HAVE_BE
-#define XCHAL_HAVE_BE			1
+#define XCHAL_HAVE_BE			0
 
 #undef XCHAL_HAVE_DENSITY
 #define XCHAL_HAVE_DENSITY		1
 
 #undef XCHAL_HAVE_CONST16
-#define XCHAL_HAVE_CONST16		0
+#define XCHAL_HAVE_CONST16		1
 
 #undef XCHAL_HAVE_ABS
 #define XCHAL_HAVE_ABS			1
@@ -58,7 +59,7 @@
 #define XCHAL_HAVE_MUL32		1
 
 #undef XCHAL_HAVE_MUL32_HIGH
-#define XCHAL_HAVE_MUL32_HIGH		0
+#define XCHAL_HAVE_MUL32_HIGH		1
 
 #undef XCHAL_HAVE_DIV32
 #define XCHAL_HAVE_DIV32		1
@@ -76,16 +77,16 @@
 #define XCHAL_HAVE_LOOPS		1
 
 #undef XCHAL_HAVE_THREADPTR
-#define XCHAL_HAVE_THREADPTR		1
+#define XCHAL_HAVE_THREADPTR		0
 
 #undef XCHAL_HAVE_RELEASE_SYNC
 #define XCHAL_HAVE_RELEASE_SYNC		1
 
 #undef XCHAL_HAVE_S32C1I
-#define XCHAL_HAVE_S32C1I		1
+#define XCHAL_HAVE_S32C1I		0
 
 #undef XCHAL_HAVE_BOOLEANS
-#define XCHAL_HAVE_BOOLEANS		0
+#define XCHAL_HAVE_BOOLEANS		1
 
 #undef XCHAL_HAVE_FP
 #define XCHAL_HAVE_FP			0
@@ -102,8 +103,12 @@
 #undef XCHAL_HAVE_FP_RSQRT
 #define XCHAL_HAVE_FP_RSQRT		0
 
+#undef XCHAL_HAVE_DFP_ACCEL
+#define XCHAL_HAVE_DFP_ACCEL		0
+/* For backward compatibility */
 #undef XCHAL_HAVE_DFP_accel
-#define XCHAL_HAVE_DFP_accel			0
+#define XCHAL_HAVE_DFP_accel		XCHAL_HAVE_DFP_ACCEL
+
 #undef XCHAL_HAVE_WINDOWED
 #define XCHAL_HAVE_WINDOWED		1
 
@@ -118,32 +123,29 @@
 
 
 #undef XCHAL_ICACHE_SIZE
-#define XCHAL_ICACHE_SIZE		16384
+#define XCHAL_ICACHE_SIZE		32768
 
 #undef XCHAL_DCACHE_SIZE
-#define XCHAL_DCACHE_SIZE		16384
+#define XCHAL_DCACHE_SIZE		0
 
 #undef XCHAL_ICACHE_LINESIZE
-#define XCHAL_ICACHE_LINESIZE		32
+#define XCHAL_ICACHE_LINESIZE		64
 
 #undef XCHAL_DCACHE_LINESIZE
-#define XCHAL_DCACHE_LINESIZE		32
+#define XCHAL_DCACHE_LINESIZE		16
 
 #undef XCHAL_ICACHE_LINEWIDTH
-#define XCHAL_ICACHE_LINEWIDTH		5
+#define XCHAL_ICACHE_LINEWIDTH		6
 
 #undef XCHAL_DCACHE_LINEWIDTH
-#define XCHAL_DCACHE_LINEWIDTH		5
+#define XCHAL_DCACHE_LINEWIDTH		4
 
 #undef XCHAL_DCACHE_IS_WRITEBACK
-#define XCHAL_DCACHE_IS_WRITEBACK	1
+#define XCHAL_DCACHE_IS_WRITEBACK	0
 
 
 #undef XCHAL_HAVE_MMU
-#define XCHAL_HAVE_MMU			1
-
-#undef XCHAL_MMU_MIN_PTE_PAGE_SIZE
-#define XCHAL_MMU_MIN_PTE_PAGE_SIZE	12
+#define XCHAL_HAVE_MMU			0
 
 
 #undef XCHAL_HAVE_DEBUG
@@ -156,14 +158,14 @@
 #define XCHAL_NUM_DBREAK		2
 
 #undef XCHAL_DEBUGLEVEL
-#define XCHAL_DEBUGLEVEL		6
+#define XCHAL_DEBUGLEVEL		2
 
 
 #undef XCHAL_MAX_INSTRUCTION_SIZE
-#define XCHAL_MAX_INSTRUCTION_SIZE	3
+#define XCHAL_MAX_INSTRUCTION_SIZE	16
 
 #undef XCHAL_INST_FETCH_WIDTH
-#define XCHAL_INST_FETCH_WIDTH		4
+#define XCHAL_INST_FETCH_WIDTH		16
 
 
 #undef XSHAL_ABI
@@ -172,5 +174,16 @@
 #define XSHAL_ABI			XTHAL_ABI_WINDOWED
 #define XTHAL_ABI_WINDOWED		0
 #define XTHAL_ABI_CALL0			1
+
+
+#undef XCHAL_M_STAGE
+#define XCHAL_M_STAGE			3
+
+#undef XTENSA_MARCH_LATEST
+#define XTENSA_MARCH_LATEST		270008
+
+#undef XTENSA_MARCH_EARLIEST
+#define XTENSA_MARCH_EARLIEST		270008
+
 
 #endif /* !XTENSA_CONFIG_H */
