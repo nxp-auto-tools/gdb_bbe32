@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE target SYSTEM "gdb-target.dtd">
+<feature name="dspbbe32-user-regs">
+    <reg bitsize="32" name="fcr" type="uint32" />
+    <reg bitsize="32" name="fsr" type="uint32" />
+</feature>

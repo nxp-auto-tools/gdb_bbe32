@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE target SYSTEM "gdb-target.dtd">
+<feature name="dspbbe32-float-regs">
+    <reg bitsize="32" name="fr0" type="uint32" />
+    <reg bitsize="32" name="fr1" type="uint32" />
+    <reg bitsize="32" name="fr2" type="uint32" />
+    <reg bitsize="32" name="fr3" type="uint32" />
+    <reg bitsize="32" name="fr4" type="uint32" />
+    <reg bitsize="32" name="fr5" type="uint32" />
+    <reg bitsize="32" name="fr6" type="uint32" />
+    <reg bitsize="32" name="fr7" type="uint32" />
+    <reg bitsize="32" name="fr8" type="uint32" />
+    <reg bitsize="32" name="fr9" type="uint32" />
+    <reg bitsize="32" name="fr10" type="uint32" />
+    <reg bitsize="32" name="fr11" type="uint32" />
+    <reg bitsize="32" name="fr12" type="uint32" />
+    <reg bitsize="32" name="fr13" type="uint32" />
+    <reg bitsize="32" name="fr14" type="uint32" />
+    <reg bitsize="32" name="fr15" type="uint32" />
+</feature>

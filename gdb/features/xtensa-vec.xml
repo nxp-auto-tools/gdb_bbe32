@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE target SYSTEM "gdb-target.dtd">
+<feature name="dspbbe32-float-regs">
+	<vector id="vector" type="uint16" count="16"/>
+	<vector id="wvec" type="uint16" count="64" />
+
+	<union id="vector_type">
+		<field name="vec_uint16" type="vector"/>
+	</union>
+	<union id="wvec_type">
+		<field name="wvec_uint16" type="wvec"/>
+	</union>
+
+    <reg bitsize="256" name="vec0" type="vector_type" />
+    <reg bitsize="256" name="vec1" type="vector_type" />
+    <reg bitsize="256" name="vec2" type="vector_type" />
+    <reg bitsize="256" name="vec3" type="vector_type" />
+    <reg bitsize="256" name="vec4" type="vector_type" />
+    <reg bitsize="256" name="vec5" type="vector_type" />
+    <reg bitsize="256" name="vec6" type="vector_type" />
+    <reg bitsize="256" name="vec7" type="vector_type" />
+    <reg bitsize="256" name="vec8" type="vector_type" />
+    <reg bitsize="256" name="vec9" type="vector_type" />
+    <reg bitsize="256" name="vec10" type="vector_type" />
+    <reg bitsize="256" name="vec11" type="vector_type" />
+    <reg bitsize="256" name="vec12" type="vector_type" />
+    <reg bitsize="256" name="vec13" type="vector_type" />
+    <reg bitsize="256" name="vec14" type="vector_type" />
+    <reg bitsize="256" name="vec15" type="vector_type" />
+    <reg bitsize="1028" name="wvec0" type="wvec_type" />
+    <reg bitsize="1028" name="wvec1" type="wvec_type" />
+    <reg bitsize="1028" name="wvec2" type="wvec_type" />
+    <reg bitsize="1028" name="wvec3" type="wvec_type" />
+</feature>

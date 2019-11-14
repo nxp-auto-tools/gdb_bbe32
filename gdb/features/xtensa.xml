@@ -6,4 +6,7 @@
   <xi:include href="xtensa-dbg.xml"/>
   <xi:include href="xtensa-general.xml"/>
   <xi:include href="xtensa-special.xml"/>
+  <xi:include href="xtensa-float.xml"/>
+  <xi:include href="xtensa-user.xml"/>
+  <xi:include href="xtensa-vec.xml"/>
 </target>
