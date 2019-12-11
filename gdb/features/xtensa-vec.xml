@@ -28,8 +28,8 @@
     <reg bitsize="256" name="vec13" type="vector_type" />
     <reg bitsize="256" name="vec14" type="vector_type" />
     <reg bitsize="256" name="vec15" type="vector_type" />
-    <reg bitsize="1028" name="wvec0" type="wvec_type" />
-    <reg bitsize="1028" name="wvec1" type="wvec_type" />
-    <reg bitsize="1028" name="wvec2" type="wvec_type" />
-    <reg bitsize="1028" name="wvec3" type="wvec_type" />
+    <reg bitsize="1024" name="wvec0" type="wvec_type" />
+    <reg bitsize="1024" name="wvec1" type="wvec_type" />
+    <reg bitsize="1024" name="wvec2" type="wvec_type" />
+    <reg bitsize="1024" name="wvec3" type="wvec_type" />
 </feature>
