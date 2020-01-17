@@ -1,25 +1,22 @@
 /* Xtensa configuration-specific ISA information.
+   Copyright (C) 2003-2020 Free Software Foundation, Inc.
 
-   Customer ID=14128; Build=0x7a38c; Copyright (c) 2003-2018 Tensilica Inc.
+   This file is part of BFD, the Binary File Descriptor library.
 
-   Permission is hereby granted, free of charge, to any person obtaining
-   a copy of this software and associated documentation files (the
-   "Software"), to deal in the Software without restriction, including
-   without limitation the rights to use, copy, modify, merge, publish,
-   distribute, sublicense, and/or sell copies of the Software, and to
-   permit persons to whom the Software is furnished to do so, subject to
-   the following conditions:
+   This program is free software; you can redistribute it and/or
+   modify it under the terms of the GNU General Public License as
+   published by the Free Software Foundation; either version 2 of the
+   License, or (at your option) any later version.
 
-   The above copyright notice and this permission notice shall be included
-   in all copies or substantial portions of the Software.
+   This program is distributed in the hope that it will be useful,
+   but WITHOUT ANY WARRANTY; without even the implied warranty of
+   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+   General Public License for more details.
 
-   THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
-   EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
-   MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
-   IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
-   CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
-   TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
-   SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.  */
+   You should have received a copy of the GNU General Public License
+   along with this program; if not, write to the Free Software
+   Foundation, Inc., 51 Franklin Street - Fifth Floor, Boston, MA
+   02110-1301, USA.  */
 
 #include "ansidecl.h"
 #include <xtensa-isa.h>
@@ -290,7 +287,7 @@ enum xtensa_state_id {
   STATE_BBX_TBW0
 };
 
-
+
 /* Field definitions.  */
 
 static unsigned
@@ -37169,7 +37166,7 @@ enum xtensa_field_id {
   FIELD__brall
 };
 
-
+
 /* Functional units.  */
 
 static xtensa_funcUnit_internal funcUnits[] = {
@@ -37180,7 +37177,7 @@ enum xtensa_funcUnit_id {
   FUNCUNIT_XT_LOADSTORE_UNIT
 };
 
-
+
 /* Register files.  */
 
 enum xtensa_regfile_id {
@@ -37215,7 +37212,7 @@ static xtensa_regfile_internal regfiles[] = {
   { "BR16", "b", REGFILE_BR, 16, 1 }
 };
 
-
+
 /* Interfaces.  */
 
 static xtensa_interface_internal interfaces[] = {
@@ -38612,7 +38609,7 @@ static const unsigned CONST_TBL_RECIP_10b_256_0[] = {
   0
 };
 
-
+
 /* Instruction operands.  */
 
 static int
@@ -43692,7 +43689,7 @@ enum xtensa_operand_id {
   OPERAND_fld_F100_S3_22_8
 };
 
-
+
 /* Iclass table.  */
 
 static xtensa_arg_internal Iclass_xt_iclass_rfe_stateArgs[] = {
@@ -55211,7 +55208,7 @@ enum xtensa_iclass_id {
   ICLASS_BBX_INITTBR
 };
 
-
+
 /*  Opcode encodings.  */
 
 static void
@@ -83342,7 +83339,7 @@ uint32 *bypass_entry(int i) {
     return 0;
 }
 
-
+
 /* Opcode table.  */
 
 static xtensa_funcUnit_use Opcode_l32e_funcUnit_uses[] = {
@@ -87739,7 +87736,7 @@ enum xtensa_opcode_id {
   OPCODE_BBX_INITTBR
 };
 
-
+
 /* Slot-specific opcode decode functions.  */
 
 static int
@@ -99481,7 +99478,7 @@ Slot_f9_s2_none_decode (const xtensa_insnbuf insn)
   return XTENSA_UNDEFINED;
 }
 
-
+
 /* Instruction slots.  */
 
 static void
