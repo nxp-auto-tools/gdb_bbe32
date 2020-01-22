@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE target SYSTEM "gdb-target.dtd">
+<feature name="dspbbe32-vbool-regs">
+	<vector id="vbool" type="uint16" count="1" />
+
+	<union id="vbool_type">
+		<field name="vbool_uint16" type="vbool"/>
+	</union>
+
+    <reg bitsize="16" name="vbool0" type="vbool_type" />
+    <reg bitsize="16" name="vbool1" type="vbool_type" />
+    <reg bitsize="16" name="vbool2" type="vbool_type" />
+    <reg bitsize="16" name="vbool3" type="vbool_type" />
+    <reg bitsize="16" name="vbool4" type="vbool_type" />
+    <reg bitsize="16" name="vbool5" type="vbool_type" />
+    <reg bitsize="16" name="vbool6" type="vbool_type" />
+    <reg bitsize="16" name="vbool7" type="vbool_type" />
+</feature>

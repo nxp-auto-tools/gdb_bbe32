@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE target SYSTEM "gdb-target.dtd">
+<feature name="dspbbe32-vsa-regs">
+	<vector id="vsa" type="uint16" count="8" />
+
+	<union id="vsa_type">
+		<field name="vsa_uint16" type="vsa"/>
+	</union>
+
+    <reg bitsize="128" name="vsa0" type="vsa_type" />
+    <reg bitsize="128" name="vsa1" type="vsa_type" />
+    <reg bitsize="128" name="vsa2" type="vsa_type" />
+    <reg bitsize="128" name="vsa3" type="vsa_type" />
+    <reg bitsize="128" name="vsa4" type="vsa_type" />
+    <reg bitsize="128" name="vsa5" type="vsa_type" />
+    <reg bitsize="128" name="vsa6" type="vsa_type" />
+    <reg bitsize="128" name="vsa7" type="vsa_type" />
+</feature>

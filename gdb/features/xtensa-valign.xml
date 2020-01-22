@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE target SYSTEM "gdb-target.dtd">
+<feature name="dspbbe32-valign-regs">
+	<vector id="valign" type="uint16" count="16" />
+
+	<union id="valign_type">
+		<field name="valign_uint16" type="valign"/>
+	</union>
+
+    <reg bitsize="256" name="valign0" type="valign_type" />
+    <reg bitsize="256" name="valign1" type="valign_type" />
+    <reg bitsize="256" name="valign2" type="valign_type" />
+    <reg bitsize="256" name="valign3" type="valign_type" />
+</feature>

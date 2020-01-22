@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE target SYSTEM "gdb-target.dtd">
+<feature name="dspbbe32-lvec-regs">
+	<vector id="lvec" type="uint16" count="32" />
+
+	<union id="lvec_type">
+		<field name="lvec_uint16" type="lvec"/>
+	</union>
+
+    <reg bitsize="512" name="lvec0" type="lvec_type" />
+    <reg bitsize="512" name="lvec1" type="lvec_type" />
+    <reg bitsize="512" name="lvec2" type="lvec_type" />
+    <reg bitsize="512" name="lvec3" type="lvec_type" />
+    <reg bitsize="512" name="lvec4" type="lvec_type" />
+    <reg bitsize="512" name="lvec5" type="lvec_type" />
+    <reg bitsize="512" name="lvec6" type="lvec_type" />
+    <reg bitsize="512" name="lvec7" type="lvec_type" />
+    <reg bitsize="512" name="lvec8" type="lvec_type" />
+    <reg bitsize="512" name="lvec9" type="lvec_type" />
+    <reg bitsize="512" name="lvec10" type="lvec_type" />
+    <reg bitsize="512" name="lvec11" type="lvec_type" />
+    <reg bitsize="512" name="lvec12" type="lvec_type" />
+    <reg bitsize="512" name="lvec13" type="lvec_type" />
+    <reg bitsize="512" name="lvec14" type="lvec_type" />
+    <reg bitsize="512" name="lvec15" type="lvec_type" />
+    <reg bitsize="512" name="lvec16" type="lvec_type" />
+    <reg bitsize="512" name="lvec17" type="lvec_type" />
+    <reg bitsize="512" name="lvec18" type="lvec_type" />
+    <reg bitsize="512" name="lvec19" type="lvec_type" />
+    <reg bitsize="512" name="lvec20" type="lvec_type" />
+    <reg bitsize="512" name="lvec21" type="lvec_type" />
+    <reg bitsize="512" name="lvec22" type="lvec_type" />
+    <reg bitsize="512" name="lvec23" type="lvec_type" />
+    <reg bitsize="512" name="lvec24" type="lvec_type" />
+    <reg bitsize="512" name="lvec25" type="lvec_type" />
+    <reg bitsize="512" name="lvec26" type="lvec_type" />
+    <reg bitsize="512" name="lvec27" type="lvec_type" />
+    <reg bitsize="512" name="lvec28" type="lvec_type" />
+    <reg bitsize="512" name="lvec29" type="lvec_type" />
+    <reg bitsize="512" name="lvec30" type="lvec_type" />
+    <reg bitsize="512" name="lvec31" type="lvec_type" />
+</feature>

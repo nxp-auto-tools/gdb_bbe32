@@ -2,11 +2,15 @@
 
 <!DOCTYPE target SYSTEM "gdb-target.dtd">
 <target version="1.0">
-  <architecture>xtensa</architecture>
-  <xi:include href="xtensa-dbg.xml"/>
-  <xi:include href="xtensa-general.xml"/>
-  <xi:include href="xtensa-special.xml"/>
-  <xi:include href="xtensa-float.xml"/>
-  <xi:include href="xtensa-user.xml"/>
-  <xi:include href="xtensa-vec.xml"/>
+	<architecture>xtensa</architecture>
+	<xi:include href="xtensa-dbg.xml" />
+	<xi:include href="xtensa-general.xml" />
+	<xi:include href="xtensa-special.xml" />
+	<xi:include href="xtensa-float.xml" />
+	<xi:include href="xtensa-user.xml" />
+	<xi:include href="xtensa-vec.xml" />
+	<xi:include href="xtensa-valign.xml" />
+	<xi:include href="xtensa-vbool.xml" />
+	<xi:include href="xtensa-lvec.xml" />
+	<xi:include href="xtensa-vsa.xml" />
 </target>
