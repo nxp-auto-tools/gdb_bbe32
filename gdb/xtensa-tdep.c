@@ -3194,20 +3194,20 @@ xtensa_derive_tdep (struct gdbarch_tdep *tdep)
 
 extern struct gdbarch_tdep xtensa_tdep;
 
-#define BBE32_DEBUG_NUMREGS 51
-#define BBE32_GENERAL_NUMREGS 48
-#define BBE32_SPECIAL_NUMREGS 49
+#define BBE32_DEBUG_NUMREGS 50
+#define BBE32_GENERAL_NUMREGS 50
+#define BBE32_SPECIAL_NUMREGS 48
 #define BBE32_FLOAT_NUMREGS 16
 #define BBE32_USER_NUMREGS 2
-#define BBE32_VEC_NUMREGS 16
+#define BBE32_VEC_NUMREGS 20
 #define BBE32_VALIGN_NUMREGS 4
 #define BBE32_VBOOL_NUMREGS 8
 #define BBE32_LVEC_NUMREGS 32
 #define BBE32_VSA_NUMREGS 8
 
-static const char *const bbe32_dbg_names[] = {"pc","traxid","traxctrl","traxstat","traxdata","traxaddr","triggerpc","pcmatchctrl","delaycnt","memaddrstart","memaddrend","pmg","intpc","pm0","pm1","pm2","pm3","pm4","pm5","pm6","pm7","pmctrl0","pmctrl1","pmctrl2","pmctrl3","pmctrl4","pmctrl5","pmctrl6","pmctrl7","pmstat0","pmstat1","pmstat2","pmstat3","pmstat4","pmstat5","pmstat6","pmstat7","ocid","dcrclr","dcrset","dsr","ddr","pwrstl","pwrstat","eristat","itctrl","clamset","clamclr","lockaccess","lockstatus","authstatus"};
-static const char *const bbe32_special_names[] = {"lbeg","lend","lcount","sar","br","windowbase","windowstart","mmid","mpuenb","eraccess","cacheadrdis","ibreakenable","memctl","atomctl","mepc","meps","mesave","mesr","mecr","mevaddr","ibreaka0","ibreaka1","dbreaka0","dbreaka1","dbreakc0","dbreakc1","epc1","epc2","depc","eps2","excsave1","excsave2","cpenable","interrupt","intset","intclear","intenable","ps","vecbase","exccause","debugcause","ccount","prid","icount","icountlevel","excvaddr","ccompare0","misc0","misc1"};
-static const char *const bbe32_general_names[] = {"a0","a1","a2","a3","a4","a5","a6","a7","a8","a9","a10","a11","a12","a13","a14","a15","ar0","ar1","ar2","ar3","ar4","ar5","ar6","ar7","ar8","ar9","ar10","ar11","ar12","ar13","ar14","ar15","ar16","ar17","ar18","ar19","ar20","ar21","ar22","ar23","ar24","ar25","ar26","ar27","ar28","ar29","ar30","ar31"};
+static const char *const bbe32_dbg_names[] = {"traxid","traxctrl","traxstat","traxdata","traxaddr","triggerpc","pcmatchctrl","delaycnt","memaddrstart","memaddrend","pmg","intpc","pm0","pm1","pm2","pm3","pm4","pm5","pm6","pm7","pmctrl0","pmctrl1","pmctrl2","pmctrl3","pmctrl4","pmctrl5","pmctrl6","pmctrl7","pmstat0","pmstat1","pmstat2","pmstat3","pmstat4","pmstat5","pmstat6","pmstat7","ocid","dcrclr","dcrset","dsr","ddr","pwrstl","pwrstat","eristat","itctrl","clamset","clamclr","lockaccess","lockstatus","authstatus"};
+static const char *const bbe32_special_names[] = {"lbeg","lend","lcount","sar","br","windowbase","windowstart","mmid","mpuenb","eraccess","cacheadrdis","ibreakenable","memctl","atomctl","mepc","meps","mesave","mesr","mecr","mevaddr","ibreaka0","ibreaka1","dbreaka0","dbreaka1","dbreakc0","dbreakc1","epc1","epc2","depc","eps2","excsave1","excsave2","cpenable","interrupt","intset","intclear","intenable","vecbase","exccause","debugcause","ccount","prid","icount","icountlevel","excvaddr","ccompare0","misc0","misc1"};
+static const char *const bbe32_general_names[] = {"a0","a1","a2","a3","a4","a5","a6","a7","a8","a9","a10","a11","a12","a13","a14","a15","ar0","ar1","ar2","ar3","ar4","ar5","ar6","ar7","ar8","ar9","ar10","ar11","ar12","ar13","ar14","ar15","ar16","ar17","ar18","ar19","ar20","ar21","ar22","ar23","ar24","ar25","ar26","ar27","ar28","ar29","ar30","ar31","pc","ps"};
 static const char *const bbe32_float_names[] = {"fr0","fr1","fr2","fr3","fr4","fr5","fr6","fr7","fr8","fr9","fr10","fr11","fr12","fr13","fr14","fr15"};
 static const char *const bbe32_user_names[] = {"fcr","fsr"};
 static const char *const bbe32_vec_names[] = {"vec0","vec1","vec2","vec3","vec4","vec5","vec6","vec7","vec8","vec9","vec10","vec11","vec12","vec13","vec14","vec15","wvec0","wvec1","wvec2","wvec3"};
@@ -3231,153 +3231,138 @@ xtensa_gdbarch_init (struct gdbarch_info info, struct gdbarch_list *arches)
       tdesc = tdesc_xtensa;
     }
     gdb_assert (tdesc);
-    int i;
+    int i,j;
+    int total_regs = 0;
     int valid_p = 1;
     if (tdesc_has_registers(tdesc)) {
 		tdesc_data = tdesc_data_alloc();
 
-		feature = tdesc_find_feature(tdesc, "dspbbe32-debug-regs");
-
-		if (feature == NULL) {
-			error("xtensa_gdbarch_init: no feature dspbbe32-debug-regs");
-			return NULL;
-		}
-
-		for (i = 0; i < BBE32_DEBUG_NUMREGS; i++) {
-			valid_p &= tdesc_numbered_register(feature, tdesc_data, i,
-					bbe32_dbg_names[i]);
-		}
-
 		feature = tdesc_find_feature(tdesc, "dspbbe32-general-regs");
 		if (feature == NULL) {
-			error("xtensa_gdbarch_init: no feature dspbbe32-general-regs");
-			return NULL;
-		}
-
-		for (i = 0; i < BBE32_GENERAL_NUMREGS; i++) {
-			valid_p &= tdesc_numbered_register(feature, tdesc_data,
-					BBE32_DEBUG_NUMREGS + i, bbe32_general_names[i]);
+			DEBUGTRACE("xtensa_gdbarch_init: no feature dspbbe32-general-regs");
+		} else {
+			for (i = total_regs, j = 0; j < BBE32_GENERAL_NUMREGS; i++, j++) {
+				valid_p &= tdesc_numbered_register(feature, tdesc_data, i,
+						bbe32_general_names[j]);
+			}
+			total_regs += BBE32_GENERAL_NUMREGS;
 		}
 
 		feature = tdesc_find_feature(tdesc, "dspbbe32-special-regs");
 		if (feature == NULL) {
-			error("xtensa_gdbarch_init: no feature dspbbe32-special-regs");
-			return NULL;
-		}
-
-		short first_special_reg = BBE32_DEBUG_NUMREGS + BBE32_GENERAL_NUMREGS;
-		for (i = 0; i < BBE32_SPECIAL_NUMREGS; i++) {
-			valid_p &= tdesc_numbered_register(feature, tdesc_data,
-					first_special_reg + i, bbe32_special_names[i]);
+			DEBUGTRACE("xtensa_gdbarch_init: no feature dspbbe32-special-regs");
+		} else {
+			for (i = total_regs, j = 0; j < BBE32_SPECIAL_NUMREGS; i++, j++) {
+				valid_p &= tdesc_numbered_register(feature, tdesc_data, i,
+						bbe32_special_names[j]);
+			}
+			total_regs += BBE32_SPECIAL_NUMREGS;
 		}
 
 		feature = tdesc_find_feature(tdesc, "dspbbe32-float-regs");
 		if (feature == NULL) {
-			error("xtensa_gdbarch_init: no feature dspbbe32-float-regs");
-			return NULL;
-		}
-
-		short first_float_reg = BBE32_DEBUG_NUMREGS + BBE32_GENERAL_NUMREGS
-				+ BBE32_SPECIAL_NUMREGS;
-		for (i = 0; i < BBE32_FLOAT_NUMREGS; i++) {
-			valid_p &= tdesc_numbered_register(feature, tdesc_data,
-					first_float_reg + i, bbe32_float_names[i]);
+			DEBUGTRACE("xtensa_gdbarch_init: no feature dspbbe32-float-regs");
+		} else {
+			for (i = total_regs, j = 0; j < BBE32_FLOAT_NUMREGS; i++, j++) {
+				valid_p &= tdesc_numbered_register(feature, tdesc_data, i,
+						bbe32_float_names[j]);
+			}
+			total_regs += BBE32_FLOAT_NUMREGS;
 		}
 
 		feature = tdesc_find_feature(tdesc, "dspbbe32-user-regs");
 		if (feature == NULL) {
-			error("xtensa_gdbarch_init: no feature dspbbe32-user-regs");
-			return NULL;
-		}
+			DEBUGTRACE("xtensa_gdbarch_init: no feature dspbbe32-user-regs");
+		} else {
 
-		short first_user_reg = BBE32_DEBUG_NUMREGS + BBE32_GENERAL_NUMREGS
-				+ BBE32_SPECIAL_NUMREGS + BBE32_FLOAT_NUMREGS;
-		for (i = 0; i < BBE32_USER_NUMREGS; i++) {
-			valid_p &= tdesc_numbered_register(feature, tdesc_data,
-					first_user_reg + i, bbe32_user_names[i]);
+			for (i = total_regs, j = 0; j < BBE32_USER_NUMREGS; i++, j++) {
+				valid_p &= tdesc_numbered_register(feature, tdesc_data, i,
+						bbe32_user_names[j]);
+			}
+			total_regs += BBE32_USER_NUMREGS;
 		}
 
 		feature = tdesc_find_feature(tdesc, "dspbbe32-vec-regs");
 		if (feature == NULL) {
-			error("xtensa_gdbarch_init: no feature dspbbe32-vec-regs");
-			return NULL;
-		}
+			DEBUGTRACE("xtensa_gdbarch_init: no feature dspbbe32-vec-regs");
+		} else {
 
-		short first_vec_reg = BBE32_DEBUG_NUMREGS + BBE32_GENERAL_NUMREGS
-				+ BBE32_SPECIAL_NUMREGS + BBE32_FLOAT_NUMREGS
-				+ BBE32_USER_NUMREGS;
-		for (i = 0; i < BBE32_VEC_NUMREGS; i++) {
-			valid_p &= tdesc_numbered_register(feature, tdesc_data,
-					first_vec_reg + i, bbe32_vec_names[i]);
+			for (i = total_regs, j = 0; j < BBE32_VEC_NUMREGS; i++, j++) {
+				valid_p &= tdesc_numbered_register(feature, tdesc_data, i,
+						bbe32_vec_names[j]);
+			}
+			total_regs += BBE32_VEC_NUMREGS;
 		}
 
 		feature = tdesc_find_feature(tdesc, "dspbbe32-valign-regs");
 		if (feature == NULL) {
-			error("xtensa_gdbarch_init: no feature dspbbe32-valign-regs");
-			return NULL;
-		}
-
-		short first_valign_reg = BBE32_DEBUG_NUMREGS + BBE32_GENERAL_NUMREGS
-				+ BBE32_SPECIAL_NUMREGS + BBE32_FLOAT_NUMREGS
-				+ BBE32_USER_NUMREGS + BBE32_VEC_NUMREGS;
-		for (i = 0; i < BBE32_VALIGN_NUMREGS; i++) {
-			valid_p &= tdesc_numbered_register(feature, tdesc_data,
-					first_valign_reg + i, bbe32_valign_names[i]);
+			DEBUGTRACE("xtensa_gdbarch_init: no feature dspbbe32-valign-regs");
+		} else {
+			for (i = total_regs, j = 0; j < BBE32_VALIGN_NUMREGS; i++, j++) {
+				valid_p &= tdesc_numbered_register(feature, tdesc_data, i,
+						bbe32_valign_names[j]);
+			}
+			total_regs += BBE32_VALIGN_NUMREGS;
 		}
 
 		feature = tdesc_find_feature(tdesc, "dspbbe32-vbool-regs");
 		if (feature == NULL) {
-			error("xtensa_gdbarch_init: no feature dspbbe32-vbool-regs");
-			return NULL;
-		}
+			DEBUGTRACE("xtensa_gdbarch_init: no feature dspbbe32-vbool-regs");
+		} else {
 
-		short first_vbool_reg = BBE32_DEBUG_NUMREGS + BBE32_GENERAL_NUMREGS
-				+ BBE32_SPECIAL_NUMREGS + BBE32_FLOAT_NUMREGS
-				+ BBE32_USER_NUMREGS + BBE32_VEC_NUMREGS + BBE32_VALIGN_NUMREGS;
-		for (i = 0; i < BBE32_VBOOL_NUMREGS; i++) {
-			valid_p &= tdesc_numbered_register(feature, tdesc_data,
-					first_vbool_reg + i, bbe32_vbool_names[i]);
+			for (i = total_regs, j = 0; j < BBE32_VBOOL_NUMREGS; i++, j++) {
+				valid_p &= tdesc_numbered_register(feature, tdesc_data, i,
+						bbe32_vbool_names[j]);
+			}
+			total_regs += BBE32_VBOOL_NUMREGS;
 		}
-
+		//TODO: modifcy after updates are available in GTA
 		feature = tdesc_find_feature(tdesc, "dspbbe32-lvec-regs1");
 		if (feature == NULL) {
-			error("xtensa_gdbarch_init: no feature dspbbe32-lvec-regs1");
-			return NULL;
-		}
+			DEBUGTRACE("xtensa_gdbarch_init: no feature dspbbe32-lvec-regs1");
+		} else {
 
-		short first_lvec_reg = BBE32_DEBUG_NUMREGS + BBE32_GENERAL_NUMREGS
-				+ BBE32_SPECIAL_NUMREGS + BBE32_FLOAT_NUMREGS
-				+ BBE32_USER_NUMREGS + BBE32_VEC_NUMREGS + BBE32_VALIGN_NUMREGS
-				+ BBE32_VBOOL_NUMREGS;
-		for (i = 0; i < BBE32_LVEC_NUMREGS / 2; i++) {
-			valid_p &= tdesc_numbered_register(feature, tdesc_data,
-					first_lvec_reg + i, bbe32_lvec_names[i]);
+			for (i = total_regs, j = 0; j < BBE32_LVEC_NUMREGS / 2; i++, j++) {
+				valid_p &= tdesc_numbered_register(feature, tdesc_data, i,
+						bbe32_lvec_names[j]);
+			}
+			total_regs += BBE32_LVEC_NUMREGS / 2;
 		}
 
 		feature = tdesc_find_feature(tdesc, "dspbbe32-lvec-regs2");
 		if (feature == NULL) {
-			error("xtensa_gdbarch_init: no feature dspbbe32-lvec-regs2");
-			return NULL;
-		}
-
-		for (i = BBE32_LVEC_NUMREGS / 2; i < BBE32_LVEC_NUMREGS; i++) {
-			valid_p &= tdesc_numbered_register(feature, tdesc_data,
-					first_lvec_reg + i, bbe32_lvec_names[i]);
+			DEBUGTRACE("xtensa_gdbarch_init: no feature dspbbe32-lvec-regs2");
+		} else {
+			for (i = total_regs, j = BBE32_LVEC_NUMREGS / 2;
+					j < BBE32_LVEC_NUMREGS; i++, j++) {
+				valid_p &= tdesc_numbered_register(feature, tdesc_data, i,
+						bbe32_lvec_names[j]);
+			}
+			total_regs += BBE32_LVEC_NUMREGS / 2;
 		}
 
 		feature = tdesc_find_feature(tdesc, "dspbbe32-vsa-regs");
 		if (feature == NULL) {
-			error("xtensa_gdbarch_init: no feature dspbbe32-vsa-regs");
-			return NULL;
+			DEBUGTRACE("xtensa_gdbarch_init: no feature dspbbe32-vsa-regs");
+		} else {
+
+			for (i = total_regs, j = 0; j < BBE32_VSA_NUMREGS; i++, j++) {
+				valid_p &= tdesc_numbered_register(feature, tdesc_data, i,
+						bbe32_vsa_names[j]);
+			}
+			total_regs += BBE32_VSA_NUMREGS;
 		}
 
-		short first_vsa_reg = BBE32_DEBUG_NUMREGS + BBE32_GENERAL_NUMREGS
-				+ BBE32_SPECIAL_NUMREGS + BBE32_FLOAT_NUMREGS
-				+ BBE32_USER_NUMREGS + BBE32_VEC_NUMREGS + BBE32_VALIGN_NUMREGS
-				+ BBE32_VBOOL_NUMREGS + BBE32_LVEC_NUMREGS;
-		for (i = 0; i < BBE32_VSA_NUMREGS; i++) {
-			valid_p &= tdesc_numbered_register(feature, tdesc_data,
-					first_vsa_reg + i, bbe32_vsa_names[i]);
+		feature = tdesc_find_feature(tdesc, "dspbbe32-debug-regs");
+
+		if (feature == NULL) {
+			DEBUGTRACE("xtensa_gdbarch_init: no feature dspbbe32-debug-regs");
+		} else {
+			for (i = total_regs, j = 0; j < BBE32_DEBUG_NUMREGS; i++, j++) {
+				valid_p &= tdesc_numbered_register(feature, tdesc_data, i,
+						bbe32_dbg_names[j]);
+			}
+			total_regs += BBE32_DEBUG_NUMREGS;
 		}
 
     	if (!valid_p) {
