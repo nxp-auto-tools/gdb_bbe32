@@ -1,0 +1,21 @@
+NXP Software Content Register
+
+Release Name: S32 GDB Client for BBE32
+
+Outgoing License:         LA_OPT_NXP_Software_License v8 June 2019
+
+Binutils GDB                Description: Binutils GDB
+                            Version: 7.12.1
+                            Home Page: https://www.gnu.org/software/binutils/
+                            License: GNU General Public License v2.0 or later
+                            Format: binary
+                            Location: gdb-7.12-bbe32 
+
+GDB Client for BBE32        Description: GDB Client for BBE32
+                            Version: Unspecified
+                            Home Page: None
+                            License: GNU General Public License v3.0 or later
+                            Format: binary
+                            Location: gdb-7.12-bbe32
+
+[end]
