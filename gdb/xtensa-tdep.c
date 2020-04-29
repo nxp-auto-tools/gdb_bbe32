@@ -3196,7 +3196,7 @@ extern struct gdbarch_tdep xtensa_tdep;
 
 #define BBE32_DEBUG_NUMREGS 50
 #define BBE32_GENERAL_NUMREGS 50
-#define BBE32_SPECIAL_NUMREGS 48
+#define BBE32_SPECIAL_NUMREGS 45
 #define BBE32_FLOAT_NUMREGS 16
 #define BBE32_USER_NUMREGS 2
 #define BBE32_VEC_NUMREGS 16
@@ -3207,7 +3207,7 @@ extern struct gdbarch_tdep xtensa_tdep;
 #define BBE32_VSA_NUMREGS 8
 
 static const char *const bbe32_dbg_names[] = {"traxid","traxctrl","traxstat","traxdata","traxaddr","triggerpc","pcmatchctrl","delaycnt","memaddrstart","memaddrend","pmg","intpc","pm0","pm1","pm2","pm3","pm4","pm5","pm6","pm7","pmctrl0","pmctrl1","pmctrl2","pmctrl3","pmctrl4","pmctrl5","pmctrl6","pmctrl7","pmstat0","pmstat1","pmstat2","pmstat3","pmstat4","pmstat5","pmstat6","pmstat7","ocid","dcrclr","dcrset","dsr","ddr","pwrstl","pwrstat","eristat","itctrl","clamset","clamclr","lockaccess","lockstatus","authstatus"};
-static const char *const bbe32_special_names[] = {"lbeg","lend","lcount","sar","br","windowbase","windowstart","mmid","mpuenb","eraccess","cacheadrdis","ibreakenable","memctl","atomctl","mepc","meps","mesave","mesr","mecr","mevaddr","ibreaka0","ibreaka1","dbreaka0","dbreaka1","dbreakc0","dbreakc1","epc1","epc2","depc","eps2","excsave1","excsave2","cpenable","interrupt","intset","intclear","intenable","vecbase","exccause","debugcause","ccount","prid","icount","icountlevel","excvaddr","ccompare0","misc0","misc1"};
+static const char *const bbe32_special_names[] = {"lbeg","lend","lcount","sar","br","windowbase","windowstart","mpuenb","eraccess","cacheadrdis","ibreakenable","memctl","atomctl","mepc","meps","mesave","mesr","mecr","mevaddr","ibreaka0","ibreaka1","dbreaka0","dbreaka1","dbreakc0","dbreakc1","epc1","epc2","depc","eps2","excsave1","excsave2","cpenable","interrupt","intset","intenable","vecbase","exccause","debugcause","ccount","prid","icount","icountlevel","excvaddr","misc0","misc1"};
 static const char *const bbe32_general_names[] = {"a0","a1","a2","a3","a4","a5","a6","a7","a8","a9","a10","a11","a12","a13","a14","a15","ar0","ar1","ar2","ar3","ar4","ar5","ar6","ar7","ar8","ar9","ar10","ar11","ar12","ar13","ar14","ar15","ar16","ar17","ar18","ar19","ar20","ar21","ar22","ar23","ar24","ar25","ar26","ar27","ar28","ar29","ar30","ar31","pc","ps"};
 static const char *const bbe32_float_names[] = {"fr0","fr1","fr2","fr3","fr4","fr5","fr6","fr7","fr8","fr9","fr10","fr11","fr12","fr13","fr14","fr15"};
 static const char *const bbe32_user_names[] = {"fcr","fsr"};
