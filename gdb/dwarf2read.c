@@ -22249,12 +22249,14 @@ age_cached_comp_units (void)
       struct dwarf2_per_cu_data *next_cu;
 
       next_cu = per_cu->cu->read_in_chain;
-
-      if (!per_cu->cu->mark)
-	{
-	  free_heap_comp_unit (per_cu->cu);
-	  *last_chain = next_cu;
-	}
+      if(per_cu->cu)
+      {
+    	  if (!per_cu->cu->mark)
+    	  {
+    		  free_heap_comp_unit (per_cu->cu);
+    		  *last_chain = next_cu;
+    	  }
+      }
       else
 	last_chain = &per_cu->cu->read_in_chain;
 
