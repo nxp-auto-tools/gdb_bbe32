@@ -3196,27 +3196,29 @@ extern struct gdbarch_tdep xtensa_tdep;
 
 #define BBE32_DEBUG_NUMREGS 50
 #define BBE32_GENERAL_NUMREGS 50
-#define BBE32_SPECIAL_NUMREGS 45
-#define BBE32_FLOAT_NUMREGS 16
+#define BBE32_SPECIAL_NUMREGS 48
 #define BBE32_USER_NUMREGS 2
 #define BBE32_VEC_NUMREGS 16
 #define BBE32_WVEC_NUMREGS 4
 #define BBE32_VALIGN_NUMREGS 4
 #define BBE32_VBOOL_NUMREGS 8
-#define BBE32_LVEC_NUMREGS 32
+#define BBE32_LVEC_NUMREGS 16
 #define BBE32_VSA_NUMREGS 8
+#define BBE32_WWVEC_NUMREGS 4
+#define BBE32_WALIGN_NUMREGS 4
 
 static const char *const bbe32_dbg_names[] = {"traxid","traxctrl","traxstat","traxdata","traxaddr","triggerpc","pcmatchctrl","delaycnt","memaddrstart","memaddrend","pmg","intpc","pm0","pm1","pm2","pm3","pm4","pm5","pm6","pm7","pmctrl0","pmctrl1","pmctrl2","pmctrl3","pmctrl4","pmctrl5","pmctrl6","pmctrl7","pmstat0","pmstat1","pmstat2","pmstat3","pmstat4","pmstat5","pmstat6","pmstat7","ocid","dcrclr","dcrset","dsr","ddr","pwrstl","pwrstat","eristat","itctrl","clamset","clamclr","lockaccess","lockstatus","authstatus"};
-static const char *const bbe32_special_names[] = {"lbeg","lend","lcount","sar","br","windowbase","windowstart","mpuenb","eraccess","cacheadrdis","ibreakenable","memctl","atomctl","mepc","meps","mesave","mesr","mecr","mevaddr","ibreaka0","ibreaka1","dbreaka0","dbreaka1","dbreakc0","dbreakc1","epc1","epc2","depc","eps2","excsave1","excsave2","cpenable","interrupt","intset","intenable","vecbase","exccause","debugcause","ccount","prid","icount","icountlevel","excvaddr","misc0","misc1"};
+static const char *const bbe32_special_names[] = {"lbeg","lend","lcount","sar","br","windowbase","windowstart","mpuenb","eraccess","cacheadrdis","ibreakenable","memctl","atomctl","mepc","meps","mesave","mesr","mecr","mevaddr","ibreaka0","ibreaka1","dbreaka0","dbreaka1","dbreakc0","dbreakc1","epc1","epc2","depc","eps2", "eps3", "eps4", "eps5","excsave1","excsave2","cpenable","interrupt","intset","intenable","vecbase","exccause","debugcause","ccount","prid","icount","icountlevel","excvaddr","misc0","misc1"};
 static const char *const bbe32_general_names[] = {"a0","a1","a2","a3","a4","a5","a6","a7","a8","a9","a10","a11","a12","a13","a14","a15","ar0","ar1","ar2","ar3","ar4","ar5","ar6","ar7","ar8","ar9","ar10","ar11","ar12","ar13","ar14","ar15","ar16","ar17","ar18","ar19","ar20","ar21","ar22","ar23","ar24","ar25","ar26","ar27","ar28","ar29","ar30","ar31","pc","ps"};
-static const char *const bbe32_float_names[] = {"fr0","fr1","fr2","fr3","fr4","fr5","fr6","fr7","fr8","fr9","fr10","fr11","fr12","fr13","fr14","fr15"};
 static const char *const bbe32_user_names[] = {"fcr","fsr"};
 static const char *const bbe32_vec_names[] = {"vec0","vec1","vec2","vec3","vec4","vec5","vec6","vec7","vec8","vec9","vec10","vec11","vec12","vec13","vec14","vec15"};
 static const char *const bbe32_wvec_names[] = {"wvec0","wvec1","wvec2","wvec3"};
 static const char *const bbe32_valign_names[] = {"valign0","valign1","valign2","valign3"};
 static const char *const bbe32_vbool_names[] = {"vbool0","vbool1","vbool2","vbool3","vbool4","vbool5","vbool6","vbool7"};
-static const char *const bbe32_lvec_names[] = {"lvec0","lvec1","lvec2","lvec3","lvec4","lvec5","lvec6","lvec7","lvec8","lvec9","lvec10","lvec11","lvec12","lvec13","lvec14","lvec15","lvec16","lvec17","lvec18","lvec19","lvec20","lvec21","lvec22","lvec23","lvec24","lvec25","lvec26","lvec27","lvec28","lvec29","lvec30","lvec31"};
+static const char *const bbe32_lvec_names[] = {"lvec0","lvec1","lvec2","lvec3","lvec4","lvec5","lvec6","lvec7","lvec8","lvec9","lvec10","lvec11","lvec12","lvec13","lvec14","lvec15"};
 static const char *const bbe32_vsa_names[] = {"vsa0","vsa1","vsa2","vsa3","vsa4","vsa5","vsa6","vsa7"};
+static const char *const bbe32_wwvec_names[] = {"wwvec0","wwvec1","wwvec2","wwvec3"};
+static const char *const bbe32_walign_names[] = {"walign0","walign1","walign2","walign3"};
 
 static struct gdbarch *
 xtensa_gdbarch_init (struct gdbarch_info info, struct gdbarch_list *arches)
@@ -3261,18 +3263,6 @@ xtensa_gdbarch_init (struct gdbarch_info info, struct gdbarch_list *arches)
 						bbe32_special_names[i]);
 			}
 			total_regs += BBE32_SPECIAL_NUMREGS;
-		}
-
-		feature = tdesc_find_feature(tdesc, "dspbbe32-float-regs");
-		if (feature == NULL) {
-			DEBUGTRACE("xtensa_gdbarch_init: no feature dspbbe32-float-regs");
-		} else {
-			for (reg_idx = total_regs, i = 0; i < BBE32_FLOAT_NUMREGS;
-					reg_idx++, i++) {
-				valid_p &= tdesc_numbered_register(feature, tdesc_data, reg_idx,
-						bbe32_float_names[i]);
-			}
-			total_regs += BBE32_FLOAT_NUMREGS;
 		}
 
 		feature = tdesc_find_feature(tdesc, "dspbbe32-user-regs");
@@ -3362,6 +3352,32 @@ xtensa_gdbarch_init (struct gdbarch_info info, struct gdbarch_list *arches)
 						bbe32_vsa_names[i]);
 			}
 			total_regs += BBE32_VSA_NUMREGS;
+		}
+
+		feature = tdesc_find_feature(tdesc, "dspbbe32-wwvec-regs");
+		if (feature == NULL) {
+			DEBUGTRACE("xtensa_gdbarch_init: no feature dspbbe32-wwvec-regs");
+		} else {
+
+			for (reg_idx = total_regs, i = 0; i < BBE32_WWVEC_NUMREGS;
+					reg_idx++, i++) {
+				valid_p &= tdesc_numbered_register(feature, tdesc_data, reg_idx,
+						bbe32_wwvec_names[i]);
+			}
+			total_regs += BBE32_WWVEC_NUMREGS;
+		}
+
+		feature = tdesc_find_feature(tdesc, "dspbbe32-walign-regs");
+		if (feature == NULL) {
+			DEBUGTRACE("xtensa_gdbarch_init: no feature dspbbe32-walign-regs");
+		} else {
+
+			for (reg_idx = total_regs, i = 0; i < BBE32_WALIGN_NUMREGS;
+					reg_idx++, i++) {
+				valid_p &= tdesc_numbered_register(feature, tdesc_data, reg_idx,
+						bbe32_walign_names[i]);
+			}
+			total_regs += BBE32_WALIGN_NUMREGS;
 		}
 
 		feature = tdesc_find_feature(tdesc, "dspbbe32-debug-regs");
