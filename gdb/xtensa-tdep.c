@@ -3387,7 +3387,7 @@ xtensa_gdbarch_init (struct gdbarch_info info, struct gdbarch_list *arches)
 				valid_p &= tdesc_numbered_register(feature, tdesc_data, reg_idx,
 						bbe32_bbx_names[i]);
 			}
-			total_regs += BBE32_DEBUG_NUMREGS;
+			total_regs += BBE32_BBX_NUMREGS;
 		}
 
 		if (!valid_p) {
