@@ -3378,9 +3378,9 @@ xtensa_gdbarch_init (struct gdbarch_info info, struct gdbarch_list *arches)
 			total_regs += BBE32_DEBUG_NUMREGS;
 		}
 		
-		feature = tdesc_find_feature(tdesc, "bbx-s32r45-user-regs");
+		feature = tdesc_find_feature(tdesc, "xtensa-s32r45-user-regs");
 		if (feature == NULL) {
-			DEBUGTRACE("xtensa_gdbarch_init: no feature bbx-s32r45-user-regs");
+			DEBUGTRACE("xtensa_gdbarch_init: no feature xtensa-s32r45-user-regs");
 		} else {
 			for (reg_idx = total_regs, i = 0; i < BBE32_BBX_NUMREGS;
 					reg_idx++, i++) {
