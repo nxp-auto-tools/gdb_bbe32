@@ -3205,7 +3205,7 @@ extern struct gdbarch_tdep xtensa_tdep;
 #define BBE32_VBOOL_NUMREGS 8
 #define BBE32_LVEC_NUMREGS 32
 #define BBE32_VSA_NUMREGS 8
-#define BBE32_BBX_NUMREGS 5
+#define BBE32_BBX_NUMREGS 6
 
 static const char *const bbe32_dbg_names[] = {"traxid","traxctrl","traxstat","traxdata","traxaddr","triggerpc","pcmatchctrl","delaycnt","memaddrstart","memaddrend","pmg","intpc","pm0","pm1","pm2","pm3","pm4","pm5","pm6","pm7","pmctrl0","pmctrl1","pmctrl2","pmctrl3","pmctrl4","pmctrl5","pmctrl6","pmctrl7","pmstat0","pmstat1","pmstat2","pmstat3","pmstat4","pmstat5","pmstat6","pmstat7","ocid","dcrclr","dcrset","dsr","ddr","pwrstl","pwrstat","eristat","itctrl","clamset","clamclr","lockaccess","lockstatus","authstatus"};
 static const char *const bbe32_special_names[] = {"lbeg","lend","lcount","sar","br","windowbase","windowstart","mpuenb","eraccess","cacheadrdis","ibreakenable","memctl","atomctl","mepc","meps","mesave","mesr","mecr","mevaddr","ibreaka0","ibreaka1","dbreaka0","dbreaka1","dbreakc0","dbreakc1","epc1","epc2","depc","eps2","excsave1","excsave2","cpenable","interrupt","intset","intenable","vecbase","exccause","debugcause","ccount","prid","icount","icountlevel","excvaddr","misc0","misc1"};
@@ -3218,7 +3218,7 @@ static const char *const bbe32_valign_names[] = {"valign0","valign1","valign2","
 static const char *const bbe32_vbool_names[] = {"vbool0","vbool1","vbool2","vbool3","vbool4","vbool5","vbool6","vbool7"};
 static const char *const bbe32_lvec_names[] = {"lvec0","lvec1","lvec2","lvec3","lvec4","lvec5","lvec6","lvec7","lvec8","lvec9","lvec10","lvec11","lvec12","lvec13","lvec14","lvec15","lvec16","lvec17","lvec18","lvec19","lvec20","lvec21","lvec22","lvec23","lvec24","lvec25","lvec26","lvec27","lvec28","lvec29","lvec30","lvec31"};
 static const char *const bbe32_vsa_names[] = {"vsa0","vsa1","vsa2","vsa3","vsa4","vsa5","vsa6","vsa7"};
-static const char *const bbe32_bbx_names[] = {"bbx_opbr0","bbx_opbr1","bbx_state0","bbx_tbr0","bbx_tbr1"};
+static const char *const bbe32_bbx_names[] = {"bbx_opbr0","bbx_opbr1","bbx_opbw0","bbx_state0","bbx_tbr0","bbx_tbr1"};
 
 static struct gdbarch *
 xtensa_gdbarch_init (struct gdbarch_info info, struct gdbarch_list *arches)
