@@ -3220,7 +3220,7 @@ static const char *const bbe32_lvec_names[] = {"lvec0","lvec1","lvec2","lvec3","
 static const char *const bbe32_vsa_names[] = {"vsa0","vsa1","vsa2","vsa3","vsa4","vsa5","vsa6","vsa7"};
 static const char *const bbe32_wwvec_names[] = {"wwvec0","wwvec1","wwvec2","wwvec3"};
 static const char *const bbe32_walign_names[] = {"walign0","walign1","walign2","walign3"};
-static const char *const bbe32_bbx_names[] = {"bbx_mode","bbx_opbr0","bbx_opbr1","bbx_range","bbx_selects0","bbx_selects1","bbx_state0","bbx_stateA","bbx_stateB","bbx_stateC","bbx_stateD"};
+static const char *const bbe32_bbx_names[] = {"bbx_mode","bbx_opbr0","bbx_opbr1","bbx_range","bbx_selects0","bbx_selects1","bbx_state0","bbx_statea","bbx_stateb","bbx_statec","bbx_stated"};
 
 static struct gdbarch *
 xtensa_gdbarch_init (struct gdbarch_info info, struct gdbarch_list *arches)
