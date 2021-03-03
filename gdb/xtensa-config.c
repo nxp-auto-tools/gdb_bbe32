@@ -24,6 +24,20 @@
 #include "xtensa-config.h"
 #include "xtensa-tdep.h"
 
+/* Masked registers.  */
+xtensa_reg_mask_t xtensa_submask52[] = { { 45, 0, 128 } };
+const xtensa_mask_t xtensa_mask52 = { 1, xtensa_submask52 };
+xtensa_reg_mask_t xtensa_submask53[] = { { 43, 0, 4 } };
+const xtensa_mask_t xtensa_mask53 = { 1, xtensa_submask53 };
+xtensa_reg_mask_t xtensa_submask54[] = { { 43, 8, 4 } };
+const xtensa_mask_t xtensa_mask54 = { 1, xtensa_submask54 };
+xtensa_reg_mask_t xtensa_submask55[] = { { 43, 16, 4 } };
+const xtensa_mask_t xtensa_mask55 = { 1, xtensa_submask55 };
+xtensa_reg_mask_t xtensa_submask56[] = { { 44, 0, 2 } };
+const xtensa_mask_t xtensa_mask56 = { 1, xtensa_submask56 };
+xtensa_reg_mask_t xtensa_submask57[] = { { 44, 8, 2 } };
+const xtensa_mask_t xtensa_mask57 = { 1, xtensa_submask57 };
+
 /* Register map.  */
 xtensa_register_t rmap[] =
 {
