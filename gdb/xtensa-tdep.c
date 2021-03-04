@@ -3395,9 +3395,9 @@ xtensa_gdbarch_init (struct gdbarch_info info, struct gdbarch_list *arches)
 			total_regs += BBE32_WALIGN_NUMREGS;
 		}
 
-		feature = tdesc_find_feature(tdesc, "xtensa-s32r41-user-regs");
+		feature = tdesc_find_feature(tdesc, "dspbbe32-bbx-regs");
 		if (feature == NULL) {
-			DEBUGTRACE("xtensa_gdbarch_init: no feature xtensa-s32r41-user-regs");
+			DEBUGTRACE("xtensa_gdbarch_init: no feature dspbbe32-bbx-regs");
 		} else {
 			for (reg_idx = total_regs, i = 0; i < BBE32_BBX_NUMREGS;
 					reg_idx++, i++) {
@@ -3405,6 +3405,19 @@ xtensa_gdbarch_init (struct gdbarch_info info, struct gdbarch_list *arches)
 						bbe32_bbx_names[i]);
 			}
 			total_regs += BBE32_BBX_NUMREGS;
+		}
+
+		feature = tdesc_find_feature(tdesc, "dspbbe32-debug-regs");
+		if (feature == NULL) {
+			DEBUGTRACE("xtensa_gdbarch_init: no feature dspbbe32-debug-regs");
+		} else {
+			for (reg_idx = total_regs, i = 0; i < BBE32_DEBUG_NUMREGS;
+					reg_idx++, i++) {
+				valid_p &= tdesc_numbered_register(feature, tdesc_data, reg_idx,
+						bbe32_dbg_names[i]);
+			}
+			total_regs += BBE32_DEBUG_NUMREGS;
+		}
 		}
 		
 		if (!valid_p) {

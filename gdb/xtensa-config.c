@@ -24,6 +24,20 @@
 #include "xtensa-config.h"
 #include "xtensa-tdep.h"
 
+/* Masked registers.  */
+xtensa_reg_mask_t xtensa_submask52[] = { { 45, 0, 128 } };
+const xtensa_mask_t xtensa_mask52 = { 1, xtensa_submask52 };
+xtensa_reg_mask_t xtensa_submask53[] = { { 43, 0, 4 } };
+const xtensa_mask_t xtensa_mask53 = { 1, xtensa_submask53 };
+xtensa_reg_mask_t xtensa_submask54[] = { { 43, 8, 4 } };
+const xtensa_mask_t xtensa_mask54 = { 1, xtensa_submask54 };
+xtensa_reg_mask_t xtensa_submask55[] = { { 43, 16, 4 } };
+const xtensa_mask_t xtensa_mask55 = { 1, xtensa_submask55 };
+xtensa_reg_mask_t xtensa_submask56[] = { { 44, 0, 2 } };
+const xtensa_mask_t xtensa_mask56 = { 1, xtensa_submask56 };
+xtensa_reg_mask_t xtensa_submask57[] = { { 44, 8, 2 } };
+const xtensa_mask_t xtensa_mask57 = { 1, xtensa_submask57 };
+
 /* Register map.  */
 xtensa_register_t rmap[] =
 {
@@ -263,6 +277,30 @@ XTREG(111,3296,512,64,64,0x1046,0x0006, 1, 4,0x0201,wl2,
 XTREG(112,3360,512,64,64,0x1047,0x0006, 1, 4,0x0201,wl3,
 			"0c:1e:54:12:ef:0c:02:43:5a:30:60:69:6d","0c:1e:44:12:ef:0c:02:43:5a:30:60:69:6d",0,0,0,0)
 
+/* bbx regs */
+XTREG(286,4244, 4, 4, 4,0x202e,0x0006, 1, 5,0x0210,bbx_range,
+        0,0,&xtensa_mask49,0,0,0)
+XTREG(287,4248, 5, 4, 4,0x202f,0x0006, 1, 5,0x0210,bbx_mode,
+        0,0,&xtensa_mask50,0,0,0)
+XTREG(288,4252,384,48, 4,0x2030,0x0006, 1, 6,0x0210,bbx_statea,
+        0,0,&xtensa_mask51,0,0,0)
+XTREG(289,4300,384,48, 4,0x2031,0x0006, 1, 6,0x0210,bbx_stateb,
+        0,0,&xtensa_mask52,0,0,0)
+XTREG(290,4348,384,48, 4,0x2032,0x0006, 1, 6,0x0210,bbx_statec,
+        0,0,&xtensa_mask53,0,0,0)
+XTREG(291,4396,384,48, 4,0x2033,0x0006, 1, 6,0x0210,bbx_stated,
+        0,0,&xtensa_mask54,0,0,0)
+XTREG(292,4444, 6, 4, 4,0x2034,0x0006, 1, 5,0x0210,bbx_selects0,
+         0,0,&xtensa_mask55,0,0,0)
+XTREG(293,4448, 6, 4, 4,0x2035,0x0006, 1, 5,0x0210,bbx_selects1,
+        0,0,&xtensa_mask56,0,0,0)
+XTREG(294,4452,128,16, 4,0x2036,0x0006,-2, 6,0x0210,bbx_state0,
+        0,0,&xtensa_mask57,0,0,0)
+XTREG(295,4468, 3, 4, 4,0x2037,0x0006, 1, 5,0x0210,bbx_opbr0,
+        0,0,&xtensa_mask58,0,0,0)
+XTREG(296,4472, 3, 4, 4,0x2038,0x0006, 1, 5,0x0210,bbx_opbr1,
+        0,0,&xtensa_mask59,0,0,0)
+		
 /* debug regs */
 XTREG(190, 3956, 32, 4, 4, 0x204d, 0x0003, -2, 4,
 		0x0101, trax_id,
@@ -511,28 +549,6 @@ XTREG(188, 3948, 1, 4, 4, 0x203d, 0x000b, -2, 4, 0x0101,
 		"03:52:64:01:03:62:64:02:03:52:a4:0f:03:60:55:11:03:52:c5:b8:03:52:d5:04:03:60:65:40:03:62:64:00:03:52:24:01:03:62:24:02",
 		"03:52:64:01:03:62:64:02:03:52:a4:0f:03:60:55:11:03:52:c5:b8:03:52:d5:04:03:62:24:00:03:60:75:40:03:52:24:01:03:62:24:02",
 		0, 0, 0, 0)
-XTREG(286,4244, 4, 4, 4,0x202e,0x0006, 1, 5,0x0210,bbx_range,
-        0,0,&xtensa_mask49,0,0,0)
-XTREG(287,4248, 5, 4, 4,0x202f,0x0006, 1, 5,0x0210,bbx_mode,
-        0,0,&xtensa_mask50,0,0,0)
-XTREG(288,4252,384,48, 4,0x2030,0x0006, 1, 6,0x0210,bbx_statea,
-        0,0,&xtensa_mask51,0,0,0)
-XTREG(289,4300,384,48, 4,0x2031,0x0006, 1, 6,0x0210,bbx_stateb,
-        0,0,&xtensa_mask52,0,0,0)
-XTREG(290,4348,384,48, 4,0x2032,0x0006, 1, 6,0x0210,bbx_statec,
-        0,0,&xtensa_mask53,0,0,0)
-XTREG(291,4396,384,48, 4,0x2033,0x0006, 1, 6,0x0210,bbx_stated,
-        0,0,&xtensa_mask54,0,0,0)
-XTREG(292,4444, 6, 4, 4,0x2034,0x0006, 1, 5,0x0210,bbx_selects0,
-         0,0,&xtensa_mask55,0,0,0)
-XTREG(293,4448, 6, 4, 4,0x2035,0x0006, 1, 5,0x0210,bbx_selects1,
-        0,0,&xtensa_mask56,0,0,0)
-XTREG(294,4452,128,16, 4,0x2036,0x0006,-2, 6,0x0210,bbx_state0,
-        0,0,&xtensa_mask57,0,0,0)
-XTREG(295,4468, 3, 4, 4,0x2037,0x0006, 1, 5,0x0210,bbx_opbr0,
-        0,0,&xtensa_mask58,0,0,0)
-XTREG(296,4472, 3, 4, 4,0x2038,0x0006, 1, 5,0x0210,bbx_opbr1,
-        0,0,&xtensa_mask59,0,0,0)
 XTREG_END
 };
 
