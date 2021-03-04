@@ -25,18 +25,28 @@
 #include "xtensa-tdep.h"
 
 /* Masked registers.  */
-xtensa_reg_mask_t xtensa_submask52[] = { { 45, 0, 128 } };
+xtensa_reg_mask_t xtensa_submask49[] = { { 46, 0, 4 } };
+const xtensa_mask_t xtensa_mask49 = { 1, xtensa_submask49 };
+xtensa_reg_mask_t xtensa_submask50[] = { { 46, 8, 5 } };
+const xtensa_mask_t xtensa_mask50 = { 1, xtensa_submask50 };
+xtensa_reg_mask_t xtensa_submask51[] = { { 114, 0, 384 } };
+const xtensa_mask_t xtensa_mask51 = { 1, xtensa_submask51 };
+xtensa_reg_mask_t xtensa_submask52[] = { { 115, 0, 384 } };
 const xtensa_mask_t xtensa_mask52 = { 1, xtensa_submask52 };
-xtensa_reg_mask_t xtensa_submask53[] = { { 43, 0, 4 } };
+xtensa_reg_mask_t xtensa_submask53[] = { { 116, 0, 384 } };
 const xtensa_mask_t xtensa_mask53 = { 1, xtensa_submask53 };
-xtensa_reg_mask_t xtensa_submask54[] = { { 43, 8, 4 } };
+xtensa_reg_mask_t xtensa_submask54[] = { { 117, 0, 384 } };
 const xtensa_mask_t xtensa_mask54 = { 1, xtensa_submask54 };
-xtensa_reg_mask_t xtensa_submask55[] = { { 43, 16, 4 } };
+xtensa_reg_mask_t xtensa_submask55[] = { { 46, 16, 6 } };
 const xtensa_mask_t xtensa_mask55 = { 1, xtensa_submask55 };
-xtensa_reg_mask_t xtensa_submask56[] = { { 44, 0, 2 } };
+xtensa_reg_mask_t xtensa_submask56[] = { { 46, 24, 6 } };
 const xtensa_mask_t xtensa_mask56 = { 1, xtensa_submask56 };
-xtensa_reg_mask_t xtensa_submask57[] = { { 44, 8, 2 } };
+xtensa_reg_mask_t xtensa_submask57[] = { { 44, 0, 128 } };
 const xtensa_mask_t xtensa_mask57 = { 1, xtensa_submask57 };
+xtensa_reg_mask_t xtensa_submask58[] = { { 45, 0, 3 } };
+const xtensa_mask_t xtensa_mask58 = { 1, xtensa_submask58 };
+xtensa_reg_mask_t xtensa_submask59[] = { { 45, 8, 3 } };
+const xtensa_mask_t xtensa_mask59 = { 1, xtensa_submask59 };
 
 /* Register map.  */
 xtensa_register_t rmap[] =
