@@ -47,6 +47,8 @@ xtensa_reg_mask_t xtensa_submask58[] = { { 45, 0, 3 } };
 const xtensa_mask_t xtensa_mask58 = { 1, xtensa_submask58 };
 xtensa_reg_mask_t xtensa_submask59[] = { { 45, 8, 3 } };
 const xtensa_mask_t xtensa_mask59 = { 1, xtensa_submask59 };
+xtensa_reg_mask_t xtensa_submask62[] = { { 45, 16, 3 } };
+const xtensa_mask_t xtensa_mask62 = { 1, xtensa_submask62 };
 
 /* Register map.  */
 xtensa_register_t rmap[] =
@@ -310,6 +312,8 @@ XTREG(295,4468, 3, 4, 4,0x2037,0x0006, 1, 5,0x0210,bbx_opbr0,
         0,0,&xtensa_mask58,0,0,0)
 XTREG(296,4472, 3, 4, 4,0x2038,0x0006, 1, 5,0x0210,bbx_opbr1,
         0,0,&xtensa_mask59,0,0,0)
+XTREG(301,4364, 4, 4, 4,0x2031,0x0006,-2, 5,0x0210,bbx_opbw0,
+        0,0,&xtensa_mask62,0,0,0)
 		
 /* debug regs */
 XTREG(190, 3956, 32, 4, 4, 0x204d, 0x0003, -2, 4,

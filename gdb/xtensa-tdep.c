@@ -3206,7 +3206,7 @@ extern struct gdbarch_tdep xtensa_tdep;
 #define BBE32_VSA_NUMREGS 8
 #define BBE32_WWVEC_NUMREGS 4
 #define BBE32_WALIGN_NUMREGS 4
-#define BBE32_BBX_NUMREGS 11
+#define BBE32_BBX_NUMREGS 12
 
 static const char *const bbe32_dbg_names[] = {"traxid","traxctrl","traxstat","traxdata","traxaddr","triggerpc","pcmatchctrl","delaycnt","memaddrstart","memaddrend","pmg","intpc","pm0","pm1","pm2","pm3","pm4","pm5","pm6","pm7","pmctrl0","pmctrl1","pmctrl2","pmctrl3","pmctrl4","pmctrl5","pmctrl6","pmctrl7","pmstat0","pmstat1","pmstat2","pmstat3","pmstat4","pmstat5","pmstat6","pmstat7","ocid","dcrclr","dcrset","dsr","ddr","pwrstl","pwrstat","eristat","itctrl","clamset","clamclr","lockaccess","lockstatus","authstatus"};
 static const char *const bbe32_special_names[] = {"lbeg","lend","lcount","sar","br","windowbase","windowstart","mpuenb","eraccess","cacheadrdis","ibreakenable","memctl","atomctl","mepc","meps","mesave","mesr","mecr","mevaddr","ibreaka0","ibreaka1","dbreaka0","dbreaka1","dbreakc0","dbreakc1","epc1","epc2","depc","eps2", "eps3", "eps4", "eps5","excsave1","excsave2","cpenable","interrupt","intset","intenable","vecbase","exccause","debugcause","ccount","prid","icount","icountlevel","excvaddr","misc0","misc1"};
@@ -3220,7 +3220,7 @@ static const char *const bbe32_lvec_names[] = {"lvec0","lvec1","lvec2","lvec3","
 static const char *const bbe32_vsa_names[] = {"vsa0","vsa1","vsa2","vsa3","vsa4","vsa5","vsa6","vsa7"};
 static const char *const bbe32_wwvec_names[] = {"wwvec0","wwvec1","wwvec2","wwvec3"};
 static const char *const bbe32_walign_names[] = {"walign0","walign1","walign2","walign3"};
-static const char *const bbe32_bbx_names[] = {"bbx_mode","bbx_opbr0","bbx_opbr1","bbx_range","bbx_selects0","bbx_selects1","bbx_state0","bbx_statea","bbx_stateb","bbx_statec","bbx_stated"};
+static const char *const bbe32_bbx_names[] = {"bbx_mode","bbx_opbr0","bbx_opbr1","bbx_opbw0","bbx_range","bbx_selects0","bbx_selects1","bbx_state0","bbx_statea","bbx_stateb","bbx_statec","bbx_stated"};
 
 static struct gdbarch *
 xtensa_gdbarch_init (struct gdbarch_info info, struct gdbarch_list *arches)
