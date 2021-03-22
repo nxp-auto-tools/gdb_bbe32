@@ -24,6 +24,20 @@
 #include "xtensa-config.h"
 #include "xtensa-tdep.h"
 
+/* Masked registers.  */
+xtensa_reg_mask_t xtensa_submask52[] = { { 45, 0, 128 } };
+const xtensa_mask_t xtensa_mask52 = { 1, xtensa_submask52 };
+xtensa_reg_mask_t xtensa_submask53[] = { { 43, 0, 4 } };
+const xtensa_mask_t xtensa_mask53 = { 1, xtensa_submask53 };
+xtensa_reg_mask_t xtensa_submask54[] = { { 43, 8, 4 } };
+const xtensa_mask_t xtensa_mask54 = { 1, xtensa_submask54 };
+xtensa_reg_mask_t xtensa_submask55[] = { { 43, 16, 4 } };
+const xtensa_mask_t xtensa_mask55 = { 1, xtensa_submask55 };
+xtensa_reg_mask_t xtensa_submask56[] = { { 44, 0, 2 } };
+const xtensa_mask_t xtensa_mask56 = { 1, xtensa_submask56 };
+xtensa_reg_mask_t xtensa_submask57[] = { { 44, 8, 2 } };
+const xtensa_mask_t xtensa_mask57 = { 1, xtensa_submask57 };
+
 /* Register map.  */
 xtensa_register_t rmap[] =
 {
@@ -309,6 +323,20 @@ XTREG( 96,996,112,16,16,0x101e,0x0006, 1, 4,0x0101,s6,
 			"0c:0e:04:87:00:83:38:aa:b8:71:40:6a:69:0c:4e:35:0c:98:86:38:1a:b8:f1:c0:69:69:0c:0e:04:86:00:83:38:aa:b8:71:40:6a:69:0c:0e:04:87:00:82:38:aa:b8:71:40:6a:69","0c:0e:04:87:00:83:38:aa:b8:71:40:6a:69:0c:0e:04:86:00:82:38:aa:b8:71:40:6a:69:0c:4e:35:86:80:0a:38:08:b8:f6:40:3a:69:0c:0e:04:87:00:82:38:aa:b8:71:40:6a:69",0,0,0,0)
 XTREG( 97,1028,112,16,16,0x101f,0x0006, 1, 4,0x0101,s7,
 			"0c:0e:04:87:00:83:38:aa:b8:71:40:6a:69:0c:4e:35:0e:98:86:38:1a:b8:f1:c0:69:69:0c:0e:04:86:00:83:38:aa:b8:71:40:6a:69:0c:0e:04:87:00:82:38:aa:b8:71:40:6a:69","0c:0e:04:87:00:83:38:aa:b8:71:40:6a:69:0c:0e:04:86:00:82:38:aa:b8:71:40:6a:69:0c:4e:35:86:80:0a:38:08:b8:f7:40:3a:69:0c:0e:04:87:00:82:38:aa:b8:71:40:6a:69",0,0,0,0)
+
+/* bbx regs */
+XTREG(299,4356, 4, 4, 4,0x202f,0x0006,-2, 5,0x0210,bbx_opbr0,
+        0,0,&xtensa_mask53,0,0,0)
+XTREG(300,4360, 4, 4, 4,0x2030,0x0006,-2, 5,0x0210,bbx_opbr1,
+        0,0,&xtensa_mask54,0,0,0)
+XTREG(301,4364, 4, 4, 4,0x2031,0x0006,-2, 5,0x0210,bbx_opbw0,
+        0,0,&xtensa_mask55,0,0,0)
+XTREG(298,4340,128,16, 4,0x202e,0x0006,-2, 6,0x0210,bbx_state0,
+        0,0,&xtensa_mask52,0,0,0)
+XTREG(302,4368, 2, 4, 4,0x2032,0x0006,-2, 5,0x0210,bbx_tbr0,
+        0,0,&xtensa_mask56,0,0,0)
+XTREG(303,4372, 2, 4, 4,0x2033,0x0006,-2, 5,0x0210,bbx_tbr1,
+        0,0,&xtensa_mask57,0,0,0)
 
 /* debug regs */
 XTREG(190, 3956, 32, 4, 4, 0x204d, 0x0003, -2, 4,
