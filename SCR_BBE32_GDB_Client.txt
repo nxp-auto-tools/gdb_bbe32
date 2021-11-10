@@ -12,7 +12,7 @@ Binutils GDB                Description: Binutils GDB
                             Location: gdb-7.12-bbe32 
 
 GDB Client for BBE32        Description: GDB Client for BBE32
-                            Version: Unspecified
+                            Version: 7.12.1
                             Home Page: None
                             License: GNU General Public License v3.0 or later
                             Format: binary
