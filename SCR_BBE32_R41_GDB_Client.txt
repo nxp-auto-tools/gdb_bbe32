@@ -1,0 +1,17 @@
+NXP Software Content Register
+
+Release Name: GDB Client for BBE32-R41
+
+Outgoing License:           GNU General Public License v3.0 or later
+
+GDB Client for BBE32-R41    Description: GDB Client for BBE32-R41
+                            Version: 7.12.1 (branch: devel-bbe32-r41, tag: GDB_BBE32-R41-7.12.1_B0)
+                            Home Page: https://github.com/nxp-auto-tools/gdb_bbe32
+                            License: GNU General Public License v3.0 or later
+                            Format: binary/source
+                            Location: gdb-7.12-bbe32
+                            Origin:
+                                GNU Binutils (GNU General Public License v3.0 or later) - https://www.gnu.org/software/binutils/
+                                Location: https://sourceware.org/git/binutils-gdb.git (tag: users/ARM/embedded-gdb-7.12-branch-2017q2)
+
+[end]
